@@ -58,6 +58,7 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 ![alt text](images/image8.png)
 
 ### 6️⃣ 이미지 업로드 기능 추가
+![alt text](images/image9.png)
 
 ### 7️⃣ 회원가입 / 로그인 기능 구현
 
@@ -170,4 +171,9 @@ python manage.py runserver
 ## 2026-03-05 (4)
 - feat : 페이지 네이션 추가 및 작동 확인
 - fix : todo/pagination.py 생성, templates_views.py > listview 경로 변겅 (todo/list.html 로 변경), .evn 작성
+- docs : README 작성
+
+## 2026-03-05 (5)
+- feat : 이미지 업로드 기능 추가
+- fix : serializers.py image 필드 추가, CI django-environ 패키지 누락 수정
 - docs : README 작성
