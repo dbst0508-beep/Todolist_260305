@@ -32,19 +32,22 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 ### 2️⃣ Generic View 기반 CRUD
 <!-- - CBV 기반 구조 설계
 - Django Template 렌더링   -->
-<create>
+# create
 
 ![alt text](images/image1.png)
 
-<detail>
+# detail
 
 ![alt text](images/image3.png)
 
-<update>
+# update
 
 ![alt text](images/image4.png)
 ![alt text](images/image5.png)
 ![alt text](images/image6.png)
+
+# delete
+![alt text](images/image7.png)
 ### 3️⃣ DRF ViewSets로 API 전환
 <!-- - Serializer 설계
 - API 응답 구조 설계
