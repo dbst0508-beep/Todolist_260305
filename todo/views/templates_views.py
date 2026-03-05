@@ -13,7 +13,7 @@ from django.urls import reverse_lazy
 class TodoListView(View):  # 클래스형
     def get(self, request):
         todos = Todo.objects.all()
-        return render(request, "todo/todo.html", {"todos": todos})
+        return render(request, "todo/list.html", {"todos": todos})
 
 
 class TodoListGenericView(ListView):  # 제너릭뷰

@@ -55,6 +55,7 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 ### 4️⃣ 환경 변수 설정 (.env)
 
 ### 5️⃣ Pagination 추가
+![alt text](images/image8.png)
 
 ### 6️⃣ 이미지 업로드 기능 추가
 
@@ -164,6 +165,9 @@ python manage.py runserver
 - fix : viewset 기반 api crud로 변환 axios 사용
 - docs : README 작성
 - test : tests_crud, tests_viewset_crud 작성 완료
-- refactor :
-- style :
-- chore :
+
+
+## 2026-03-05 (4)
+- feat : 페이지 네이션 추가 및 작동 확인
+- fix : todo/pagination.py 생성, templates_views.py > listview 경로 변겅 (todo/list.html 로 변경), .evn 작성
+- docs : README 작성
