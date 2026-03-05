@@ -30,8 +30,8 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 ![alt text](images/image.png)
 
 ### 2️⃣ Generic View 기반 CRUD
-<!-- - CBV 기반 구조 설계
-- Django Template 렌더링   -->
+- CBV 기반 구조 설계
+- Django Template 렌더링
 # create
 
 ![alt text](images/image1.png)
@@ -49,9 +49,9 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 # delete
 ![alt text](images/image7.png)
 ### 3️⃣ DRF ViewSets로 API 전환
-<!-- - Serializer 설계
+- Serializer 설계
 - API 응답 구조 설계
-   -->
+
 ### 4️⃣ 환경 변수 설정 (.env)
 
 ### 5️⃣ Pagination 추가
@@ -104,9 +104,9 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 ### Frontend
 - Django Template
 - HTML5 / CSS3
-<!-- - JavaScript
+- JavaScript
 - Axios
-   -->
+
 ### DevOps
 - Git / GitHub
 - pre-commit
@@ -159,11 +159,11 @@ python manage.py runserver
 
 
 
-## 2026-03-05
-- feat : views.py, admin page 생성
-- fix :
+## 2026-03-05 (3)
+- feat : CRUD, API CRUD 작성 및 test코드 작성
+- fix : viewset 기반 api crud로 변환 axios 사용
 - docs : README 작성
-- test : X
+- test : tests_crud, tests_viewset_crud 작성 완료
 - refactor :
 - style :
 - chore :
