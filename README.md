@@ -61,6 +61,11 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 ![alt text](images/image9.png)
 
 ### 7️⃣ 회원가입 / 로그인 기능 구현
+![alt text](images/image10.png)
+
+# 회원가입 > 로그인
+![alt text](images/image11.png)
+![alt text](images/image12.png)
 
 ### 8️⃣ 템플릿 구조 정리
 

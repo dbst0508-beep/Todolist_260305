@@ -20,6 +20,7 @@ class TodoSerializer(ModelSerializer):
             "updated_at",
             "image",
         ]
+        read_only_fields = ["user"]
 
 
 read_only_fields = ["created_at", "updated_at"]

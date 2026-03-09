@@ -9,6 +9,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("todo/", include("todo.urls", namespace="todo")),
     path("", lambda request: redirect("todo:list")),
+    path("", include("accounts.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
