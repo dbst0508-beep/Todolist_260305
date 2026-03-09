@@ -1,6 +1,19 @@
 from pathlib import Path
 import os
 import environ
+from datetime import timedelta
+
+
+SIMPLE_JWT = {
+    # access는 짧게(보안), refresh는 길게(편의)
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    # Authorization: Bearer <token>
+    "AUTH_HEADER_TYPES": ("Bearer",),
+    # (5~6단계에서 다룰 것들 - 지금은 False로 두고 시작 권장)
+    "ROTATE_REFRESH_TOKENS": False,
+    "BLACKLIST_AFTER_ROTATION": False,
+}
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -120,6 +133,7 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         # 세션 인증 (Django 로그인 기반)
         # 브라우저에서 로그인 상태라면 자동 인증됨
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         # Basic 인증 (아이디/비밀번호를 헤더로 보내는 방식)
         # 주로 테스트용으로 사용됨 (Postman, curl 등)

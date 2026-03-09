@@ -71,6 +71,10 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 ![alt text](images/image13.png)
 
 ### 9️⃣ JWT 인증 도입
+![alt text](images/image14.png)
+
+# 네트워크 부분
+![alt text](images/image15.png)
 
 ### 🔟 인터랙티브 기능 추가 (Ajax / Axios)
 
@@ -193,3 +197,11 @@ python manage.py runserver
 - feat : 템플릿 구조 정리 (base.html, auth_base.html, header.html, footer.html 분리)
 - feat : 헤더 인증 상태 분기 (로그인/비로그인 UI 분리)
 - refactor : axios CDN 중복 제거, base.html로 통합
+
+## 2026-03-09 (8)
+- feat : JWT 인증 방식 도입 (세션 → JWT 전환)
+- feat : simplejwt 설치 및 settings.py 설정 (JWTAuthentication)
+- feat : 로그인 API를 TokenObtainPairView로 교체 (access + refresh 토큰 발급)
+- feat : static/js/api.js 생성 (공통 axios 인스턴스, Authorization 자동 부착)
+- refactor : 전체 템플릿 세션 방식 제거, window.api 방식으로 전환
+- refactor : CSRF 토큰 제거, withCredentials 제거
