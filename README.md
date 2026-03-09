@@ -68,6 +68,7 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 ![alt text](images/image12.png)
 
 ### 8️⃣ 템플릿 구조 정리
+![alt text](images/image13.png)
 
 ### 9️⃣ JWT 인증 도입
 
@@ -182,3 +183,13 @@ python manage.py runserver
 - feat : 이미지 업로드 기능 추가
 - fix : serializers.py image 필드 추가, CI django-environ 패키지 누락 수정
 - docs : README 작성
+
+## 2026-03-05 (6)
+- feat : 회원가입/로그인/로그아웃 기능 추가 (세션 기반 인증)
+- feat : Todo 유저 소유 구조 변경 (내 것만 조회/수정/삭제)
+- chore : accounts 앱 생성
+
+## 2026-03-05 (7)
+- feat : 템플릿 구조 정리 (base.html, auth_base.html, header.html, footer.html 분리)
+- feat : 헤더 인증 상태 분기 (로그인/비로그인 UI 분리)
+- refactor : axios CDN 중복 제거, base.html로 통합
