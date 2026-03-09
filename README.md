@@ -77,6 +77,7 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 ![alt text](images/image15.png)
 
 ### 🔟 인터랙티브 기능 추가 (Ajax / Axios)
+![alt text](images/image16.png)
 
 ### 1️⃣1️⃣ CSS 및 UI 정리
 
@@ -205,3 +206,12 @@ python manage.py runserver
 - feat : static/js/api.js 생성 (공통 axios 인스턴스, Authorization 자동 부착)
 - refactor : 전체 템플릿 세션 방식 제거, window.api 방식으로 전환
 - refactor : CSRF 토큰 제거, withCredentials 제거
+
+## 2026-03-09 (9)
+- feat : interaction 앱 생성 (좋아요/북마크/댓글)
+- feat : TodoLike, TodoBookmark, TodoComment 모델 추가
+- feat : interaction/serializers.py, views.py, urls.py 생성
+- feat : todo/serializers.py 확장 (like_count, is_liked, bookmark_count, is_bookmarked, comment_count, username)
+- feat : TodoViewSet에 like/bookmark/comments action 추가
+- refactor : TodoViewSet permission_classes AllowAny로 변경 (목록/상세 공개)
+- feat : list.html 인터랙티브 UI 추가 (좋아요/북마크/댓글 버튼, 이벤트 위임)

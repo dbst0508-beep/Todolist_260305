@@ -1,14 +1,21 @@
 from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 from .models import Todo
+from interaction.models import TodoLike, TodoBookmark, TodoComment
 
 
-# API 요청 데이터를 모델 객체로 변환하는 변환기
 class TodoSerializer(ModelSerializer):
-    class Meta:
-        model = Todo  # 시리얼라이즈가 검증할 모델
-        fields = "__all__"  # 모델의 모든 필드를 자동으로 직렬화합니다.
-        read_only_fields = ["created_at", "updated_at"]  # 읽기만 가능
 
+    username = serializers.CharField(source="user.username", read_only=True)
+
+    like_count = serializers.SerializerMethodField()
+    is_liked = serializers.SerializerMethodField()
+    bookmark_count = serializers.SerializerMethodField()
+    is_bookmarked = serializers.SerializerMethodField()
+    comment_count = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Todo
         fields = [
             "id",
             "name",
@@ -19,8 +26,39 @@ class TodoSerializer(ModelSerializer):
             "created_at",
             "updated_at",
             "image",
+            "user",
+            "username",
+            "like_count",
+            "is_liked",
+            "bookmark_count",
+            "is_bookmarked",
+            "comment_count",
         ]
         read_only_fields = ["user"]
 
+    def _user(self):
+        request = self.context.get("request")
+        if request and request.user.is_authenticated:
+            return request.user
+        return None
 
-read_only_fields = ["created_at", "updated_at"]
+    def get_like_count(self, obj):
+        return TodoLike.objects.filter(todo=obj).count()
+
+    def get_is_liked(self, obj):
+        user = self._user()
+        if not user:
+            return False
+        return TodoLike.objects.filter(todo=obj, user=user).exists()
+
+    def get_bookmark_count(self, obj):
+        return TodoBookmark.objects.filter(todo=obj).count()
+
+    def get_is_bookmarked(self, obj):
+        user = self._user()
+        if not user:
+            return False
+        return TodoBookmark.objects.filter(todo=obj, user=user).exists()
+
+    def get_comment_count(self, obj):
+        return TodoComment.objects.filter(todo=obj).count()
