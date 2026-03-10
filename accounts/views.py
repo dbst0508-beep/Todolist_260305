@@ -17,6 +17,9 @@ from rest_framework.permissions import AllowAny
 # 회원가입 데이터 검증 Serializer
 from .serializers import SignupSerializer
 
+# 로그인 한 사람만 접근 가능
+from rest_framework.permissions import IsAuthenticated
+
 
 class SignupAPIView(APIView):
 
@@ -38,6 +41,19 @@ class SignupAPIView(APIView):
 
         # 회원가입 성공 응답
         return Response({"detail": "회원가입 완료"}, status=status.HTTP_201_CREATED)
+
+
+class MeAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response(
+            {
+                "id": request.user.id,
+                "username": request.user.username,
+                "email": request.user.email,
+            }
+        )
 
 
 # # 세션 로그인 API < jwt 변환하면서 urls.py 에서 토큰으로 처리 됨

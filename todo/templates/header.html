@@ -6,16 +6,6 @@
   </h1>
 
   <div>
-    <!-- ✅ [삭제됨] 기존: Django 템플릿 인증 분기(request.user.is_authenticated) -->
-    <!--
-    {% if request.user.is_authenticated %}
-        <span>{{ request.user.username }}님 환영합니다</span>
-        <button id="logoutBtn">로그아웃</button>
-    {% else %}
-        <a href="/login/">로그인</a>
-        <a href="/signup-page/">회원가입</a>
-    {% endif %}
-    -->
 
     <!-- ✅ [수정됨] 변경: JWT 기준으로 "JS가 토글"할 영역을 미리 만들어둠 -->
     <!-- ✅ JWT 기준: JS로 토글할 영역 -->
@@ -35,7 +25,7 @@
 <hr>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
 
   // ✅ [추가됨] 토큰 키 상수화 (다른 페이지들과 통일)
   const ACCESS_KEY = "access_token";
@@ -61,11 +51,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ✅ [추가됨] 토큰 있으면: 로그아웃/환영 표시 + 로그인/회원가입 숨김
   if (access) {
-    // ✅ [수정됨] 기존: "{{ request.user.username }}님 환영합니다"를 서버가 출력
-    // ✅ 변경: (3단계에서는 username을 토큰에서 꺼내지 않으므로) 일단 "로그인됨" 표시
-    // (3단계에서는 username까지는 안 뽑아도 됨 — 7단계에서 정리)
-    welcomeEl.textContent = "로그인됨";
-    welcomeEl.style.display = "inline-block";
+    try {
+      const res = await window.api.get("/me/");
+      const user = res.data;
+      welcomeEl.textContent = `${user.username}님 환영합니다`;
+    } catch (err) {
+      console.error("유저 정보 불러오기 실패", err);
+      localStorage.removeItem(ACCESS_KEY);
+      localStorage.removeItem(REFRESH_KEY);
+      window.location.href = "/login/";
+      return;
+    }
     logoutBtn.style.display = "inline-block";
 
     loginLink.style.display = "none";

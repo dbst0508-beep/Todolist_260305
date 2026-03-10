@@ -93,6 +93,8 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 ![alt text](images/image20.png)
 
 ### 1️⃣2️⃣ 다른 사용자 글 조회 기능
+![alt text](images/image21.png)
+![alt text](images/image22.png)
 
 ### 1️⃣3️⃣ SQLite → PostgreSQL 전환
 
@@ -239,3 +241,12 @@ refactor : list.html toNumber 헬퍼 함수 추가
 refactor : create.html buildFormData 함수 분리
 refactor : update.html buildFormData 함수 분리
 refactor : detail.html handleAuthError 구조 통일
+
+
+## 2026-03-10 (11)
+feat : Todo 공개 여부 필드 추가 (is_public, default=True)
+feat : 다른 사용자 글 목록 조회 기능 추가 (Q 필터 적용)
+feat : 현재 로그인 사용자 정보 API 추가 (MeAPIView)
+feat : 헤더에 로그인 사용자 username 표시 (OOO님 환영합니다)
+refactor : interaction/views.py TodoCommentListAPIView 인증 추가
+chore : accounts/urls.py me/ 엔드포인트 추가

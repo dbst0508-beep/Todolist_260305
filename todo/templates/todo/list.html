@@ -199,6 +199,24 @@ document.addEventListener("DOMContentLoaded", () => {
       loadComments(todo.id, card);
     });
   }
+  async function loadComments(todoId, card) {
+        const listEl = card.querySelector(".comment-list");
+        if (!listEl) return;
+
+        const res = await window.api.get(InteractionAPI.commentList(todoId));
+        const comments = res.data || [];
+
+        listEl.innerHTML = "";
+        comments.forEach(c => {
+            const item = document.createElement("div");
+            item.className = "comment-item";
+            item.style.padding = "6px 0";
+            item.innerHTML = `<div style="font-size:14px;">
+            <strong>${c.username ?? ""}</strong> : ${c.content ?? ""}
+            </div>`;
+            listEl.appendChild(item);
+        });
+        }
 
   function updatePaginationUI(data) {
     const current = data.current_page ?? currentPage ?? 1;

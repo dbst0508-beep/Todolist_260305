@@ -6,13 +6,13 @@ from rest_framework import viewsets
 from ..models import Todo
 from interaction.models import TodoLike, TodoBookmark, TodoComment
 from rest_framework.response import Response
+from django.db.models import Q
 
 # 인증된 사용자만 접근 가능하도록 하는 권한 클래스
 from rest_framework.permissions import IsAuthenticated
 from ..serializers import TodoSerializer  # 시리얼라이즈 불러오기
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.decorators import action
-from rest_framework.permissions import AllowAny
 
 
 class TodoListPagination(PageNumberPagination):
@@ -31,9 +31,17 @@ class TodoListPagination(PageNumberPagination):
 
 class TodoViewSet(viewsets.ModelViewSet):
 
-    queryset = Todo.objects.all().order_by("-created_at")
+    # queryset = Todo.objects.all().order_by("-created_at")
+
     serializer_class = TodoSerializer
-    permission_classes = [AllowAny]  # ← 10번에서 변경됨
+    permission_classes = [IsAuthenticated]
+    pagination_class = TodoListPagination
+
+    def get_queryset(self):
+        user = self.request.user
+        return Todo.objects.filter(Q(is_public=True) | Q(user=user)).order_by(
+            "-created_at"
+        )
 
     def list(self, request, *args, **kwargs):
 

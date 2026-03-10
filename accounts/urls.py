@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from .views import SignupAPIView, SessionLogoutAPIView
+from .views import SignupAPIView, SessionLogoutAPIView, MeAPIView
 from .views_page import LoginPageView, SignupPageView
 
 urlpatterns = [
@@ -15,4 +15,5 @@ urlpatterns = [
     # Pages
     path("signup-page/", SignupPageView.as_view(), name="page-signup"),
     path("login/", LoginPageView.as_view(), name="page-login"),
+    path("me/", MeAPIView.as_view()),
 ]
