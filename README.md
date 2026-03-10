@@ -97,6 +97,7 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 ![alt text](images/image22.png)
 
 ### 1️⃣3️⃣ SQLite → PostgreSQL 전환
+![alt text](images/image23.png)
 
 ### 1️⃣4️⃣ 웹 크롤링 → CSV / JSONL 데이터 정제
 
@@ -250,3 +251,11 @@ feat : 현재 로그인 사용자 정보 API 추가 (MeAPIView)
 feat : 헤더에 로그인 사용자 username 표시 (OOO님 환영합니다)
 refactor : interaction/views.py TodoCommentListAPIView 인증 추가
 chore : accounts/urls.py me/ 엔드포인트 추가
+
+## 2026-03-10 (12)
+
+chore : SQLite에서 PostgreSQL로 DB 전환
+chore : docker-compose.yml 추가 (PostgreSQL 컨테이너 설정)
+chore : psycopg2-binary 설치
+chore : settings.py DATABASES PostgreSQL로 변경
+chore : SQLite 데이터 PostgreSQL로 마이그레이션 (dumpdata/loaddata
