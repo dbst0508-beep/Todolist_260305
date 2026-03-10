@@ -80,6 +80,17 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 ![alt text](images/image16.png)
 
 ### 1️⃣1️⃣ CSS 및 UI 정리
+# 로그인 화면
+![alt text](images/image17.png)
+
+# 메인 페이지
+![alt text](images/image18.png)
+
+# 상세 페이지
+![alt text](images/image19.png)
+
+# 수정 페이지
+![alt text](images/image20.png)
 
 ### 1️⃣2️⃣ 다른 사용자 글 조회 기능
 
@@ -215,3 +226,16 @@ python manage.py runserver
 - feat : TodoViewSet에 like/bookmark/comments action 추가
 - refactor : TodoViewSet permission_classes AllowAny로 변경 (목록/상세 공개)
 - feat : list.html 인터랙티브 UI 추가 (좋아요/북마크/댓글 버튼, 이벤트 위임)
+
+## 2026-03-09 (10)
+
+feat : CSS 파일 분리 생성 (list.css, detail.css, update.css, login.css)
+feat : base.html extra_css 블록 추가 (페이지별 CSS 선택 로드)
+feat : list.html 댓글 목록 자동 로딩 추가 (loadComments)
+feat : list.html Todo 카드 작성자(username) 표시 추가
+feat : list.html 영화 리뷰 페이지 이동 버튼 추가 (movieReviewsBtn)
+refactor : list.html JS async/await 방식으로 통일
+refactor : list.html toNumber 헬퍼 함수 추가
+refactor : create.html buildFormData 함수 분리
+refactor : update.html buildFormData 함수 분리
+refactor : detail.html handleAuthError 구조 통일
