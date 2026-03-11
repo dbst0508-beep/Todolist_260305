@@ -103,6 +103,11 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 ![alt text](images/image24.png)
 
 ### 1️⃣5️⃣ DBeaver → DRF 데이터 적재
+![alt text](images/image25.png)
+
+### Admin page
+
+![alt text](images/image26.png)
 
 ### 1️⃣6️⃣ DRF에 Hugging Face 모델 연동
 
@@ -269,3 +274,12 @@ feat : PostgreSQL stg_movie_reviews 테이블 생성
 feat : 크롤링 데이터 PostgreSQL 저장 (sqlalchemy, df.to_sql)
 feat : url, collected_at, doc_id 컬럼 추가
 feat : doc_id 기반 중복 방지 upsert 구현
+
+## 2026-03-11 (14)
+
+feat : reviews 앱 생성 및 settings 등록
+feat : CollectedReview 모델 생성 (stg_movie_reviews 테이블 연결, managed=False)
+feat : CollectedReviewSerializer 생성
+feat : CollectedReviewViewSet 생성 (ReadOnlyModelViewSet)
+feat : reviews/urls.py 생성 및 mysite/urls.py 등록
+feat : CollectedReviewAdmin 등록
