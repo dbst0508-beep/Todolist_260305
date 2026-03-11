@@ -100,6 +100,7 @@ AI 모델 연동(Hugging Face), Redis/Celery 비동기 처리까지
 ![alt text](images/image23.png)
 
 ### 1️⃣4️⃣ 웹 크롤링 → CSV / JSONL 데이터 정제
+![alt text](images/image24.png)
 
 ### 1️⃣5️⃣ DBeaver → DRF 데이터 적재
 
@@ -259,3 +260,12 @@ chore : docker-compose.yml 추가 (PostgreSQL 컨테이너 설정)
 chore : psycopg2-binary 설치
 chore : settings.py DATABASES PostgreSQL로 변경
 chore : SQLite 데이터 PostgreSQL로 마이그레이션 (dumpdata/loaddata
+
+## 2026-03-11 (13)
+
+feat : Jupyter Notebook 설치 및 크롤링 환경 구성 (requests, beautifulsoup4, pandas, tqdm)
+feat : 네이버 영화 리뷰 크롤링 구현 (BeautifulSoup)
+feat : PostgreSQL stg_movie_reviews 테이블 생성
+feat : 크롤링 데이터 PostgreSQL 저장 (sqlalchemy, df.to_sql)
+feat : url, collected_at, doc_id 컬럼 추가
+feat : doc_id 기반 중복 방지 upsert 구현
